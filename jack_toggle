@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-jack_control status > /dev/null
-stopped=$?
-
-if [ $stopped == 1 ]; then 
-    echo Starting
+if [ $(jack_is) == "OFF" ]; then 
     jack_on
 else
     jack_off
