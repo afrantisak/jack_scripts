@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ $(jack_is) == "OFF" ] || [ "$1" == "--force" ]; then 
+    pulseaudio --kill
+    sudo alsa force-reload
+    sleep 1
+    jack_control start > /dev/null
+else
+    echo It\'s already on.  Use jack_reset to stop and restart.
+fi
+

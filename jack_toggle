@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+jack_control status > /dev/null
+stopped=$?
+
+if [ $stopped == 1 ]; then 
+    echo Starting
+    jack_on
+else
+    jack_off
+fi
+
